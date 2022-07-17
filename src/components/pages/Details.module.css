@@ -1,0 +1,31 @@
+.container {
+  margin: auto;
+  width: 60%;
+}
+
+.break {
+  border-bottom: 1px solid;
+}
+
+.image {
+  display: block;
+}
+
+.price {
+  margin-top: 150px;
+  margin-left: 30px;
+  margin-bottom: 50px;
+  display: block;
+}
+
+.img-container {
+  display: flex;
+}
+
+h3 {
+  display: flex;
+}
+
+.paragraph {
+  display: flex;
+}

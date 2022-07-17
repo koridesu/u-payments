@@ -1,6 +1,7 @@
-import axios from 'axios';
-import React from 'react';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Item } from '../../interfaces/item-interface';
+import { ItemContext } from '../../store/item-context';
 import classes from './ItemCard.module.css';
 
 interface Props {
@@ -9,12 +10,20 @@ interface Props {
 }
 
 function ItemCard(props: Props) {
+  const navigate = useNavigate();
+  const itemContext = useContext(ItemContext);
   const onclick = () => {
     props.deleteById(props.item.id);
   };
 
+  const navigateDescriptions = () => {
+    itemContext.setSelectedItemId(props.item.id);
+    localStorage.setItem('selectedItemId', props.item.id);
+    navigate('/details');
+  };
+
   return (
-    <div className={classes['item-card']}>
+    <div className={classes['item-card']} onClick={navigateDescriptions}>
       <button className={classes.close} onClick={onclick}>
         X
       </button>

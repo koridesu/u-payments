@@ -1,9 +1,11 @@
 import React from 'react';
-import { Item } from '../interfaces/item-interface';
+import { Item, ItemContextType } from '../interfaces/item-interface';
 
-const defaultValue = {
+const defaultValue: ItemContextType = {
+  selectedItemId: '',
   items: [] as Item[],
   listItemByCategory(category: string) {},
   setItems([]: Item[]) {},
+  setSelectedItemId(id: string) {},
 };
 export const ItemContext = React.createContext(defaultValue);

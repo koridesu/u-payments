@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Item } from '../interfaces/item-interface';
+import { Item, ItemContextType } from '../interfaces/item-interface';
 import { DefaultProps } from '../interfaces/props-interface';
 import { ItemContext } from './item-context';
 
 function ItemContextProvider(props: DefaultProps) {
   const [itemsState, setItemsState] = useState<Item[]>([]);
+  const [selectedItemState, setSelectedItemState] = useState<string>();
 
   const listItemByCategory = (category: string) => {
     const desiredItems = itemsState.filter((item) => {
@@ -20,10 +21,16 @@ function ItemContextProvider(props: DefaultProps) {
     });
   };
 
-  const itemContext = {
+  const setSelectedItemId = (id: string) => {
+    setSelectedItemState(id);
+  };
+
+  const itemContext: ItemContextType = {
+    selectedItemId: selectedItemState,
     items: itemsState,
     listItemByCategory,
     setItems,
+    setSelectedItemId,
   };
 
   return (

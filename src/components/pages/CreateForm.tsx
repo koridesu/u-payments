@@ -25,11 +25,10 @@ function CreateForm() {
   };
 
   const postItemToApi = async () => {
-    const result = await axios.post(
+    await axios.post(
       'https://62286b649fd6174ca82321f1.mockapi.io/case-study/products',
       item
     );
-
     navigate('/homepage');
   };
 

@@ -5,6 +5,7 @@ import AddItem from './components/AddItem';
 import DisplayList from './components/DisplayList';
 import Header from './components/Header';
 import CreateForm from './components/pages/CreateForm';
+import Details from './components/pages/Details';
 import ItemContextProvider from './store/ItemContextProvider';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
               path='/createpage'
               element={<CreateForm></CreateForm>}
             ></Route>
+            <Route path='/details' element={<Details></Details>}></Route>
           </Routes>
         </ItemContextProvider>
       </div>
