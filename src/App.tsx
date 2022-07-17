@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import AddItem from './components/AddItem';
 import DisplayList from './components/DisplayList';
 import Filter from './components/Filter';
 import Header from './components/Header';
@@ -10,10 +11,10 @@ function App() {
     <div className='App'>
       <div className='main-container'>
         <Header></Header>
-
         <ItemContextProvider>
           <Filter></Filter>
           <DisplayList></DisplayList>
+          <AddItem></AddItem>
         </ItemContextProvider>
       </div>
     </div>

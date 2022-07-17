@@ -1,0 +1,19 @@
+.button {
+  background-color: rgb(7, 25, 46);
+  border-radius: 50%;
+  font-size: 30px;
+  color: white;
+  transition: 0.5ms;
+  border: none;
+  cursor: pointer;
+  width: 90px;
+  height: 90px;
+  float: right;
+}
+.button:hover {
+  background-color: rgb(5, 37, 74);
+}
+
+.button:focus {
+  outline: none;
+}
