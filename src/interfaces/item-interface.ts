@@ -7,3 +7,8 @@ export interface Item {
   avatar: string;
   developerEmail: string;
 }
+
+export interface FilterInterface {
+  nameFilter?: string;
+  categoryFilter?: string;
+}

@@ -1,9 +1,8 @@
 import React, { Fragment } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AddItem from './components/AddItem';
 import DisplayList from './components/DisplayList';
-import Filter from './components/Filter';
 import Header from './components/Header';
 import CreateForm from './components/pages/CreateForm';
 import ItemContextProvider from './store/ItemContextProvider';
@@ -19,7 +18,6 @@ function App() {
               path='/homepage'
               element={
                 <Fragment>
-                  <Filter></Filter>
                   <DisplayList></DisplayList>
                   <AddItem />
                 </Fragment>

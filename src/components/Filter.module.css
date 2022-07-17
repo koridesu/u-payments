@@ -19,5 +19,17 @@ input {
 }
 
 .search {
+  height: 2rem;
   width: 300px;
+}
+
+.button {
+  font-size: medium;
+  font-style: normal;
+  border-radius: 5px;
+  color: gray;
+  height: 2rem;
+  width: 100px;
+  margin-right: auto;
+  margin-left: 10px;
 }
