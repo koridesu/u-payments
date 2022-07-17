@@ -22,6 +22,18 @@ function DisplayList() {
     itemContext.setItems(result.data);
   };
 
+  const deleteItemById = async (id: string) => {
+    await axios.delete(
+      `https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/${id}`
+    );
+
+    itemContext.setItems(
+      itemContext.items.filter((item) => {
+        return item.id !== id;
+      })
+    );
+  };
+
   const handleCategoryFilter = (category?: string) => {
     setFilter({ ...filter, categoryFilter: category });
   };
@@ -45,7 +57,7 @@ function DisplayList() {
             if (!filter?.nameFilter || item.name === filter.nameFilter)
               return (
                 <li key={index} style={{ listStyle: 'none' }}>
-                  <ItemCard item={item}></ItemCard>
+                  <ItemCard item={item} deleteById={deleteItemById}></ItemCard>
                 </li>
               );
 

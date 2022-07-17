@@ -18,3 +18,21 @@ img {
   width: 200px;
   height: 200px;
 }
+
+.close {
+  background-color: rgb(237, 229, 229);
+  color: rgb(59, 54, 54);
+  opacity: 0.4;
+  border-radius: 10px;
+  font-style: normal;
+  font-size: medium;
+  position: absolute;
+  margin-left: 8rem;
+  margin-top: -8px;
+  cursor: pointer;
+}
+
+.close:hover {
+  opacity: 1;
+  color: black;
+}
