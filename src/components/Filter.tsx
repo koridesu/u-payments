@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Item } from '../interfaces/item-interface';
 import { ItemContext } from '../store/item-context';
 import classes from './Filter.module.css';
 
