@@ -29,3 +29,24 @@ h3 {
 .paragraph {
   display: flex;
 }
+
+.back {
+  background-color: rgb(152, 34, 34);
+  font-size: medium;
+  font-style: normal;
+  border-radius: 5px;
+  color: black;
+  height: 2rem;
+  width: 30%;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+  margin-top: 3rem;
+  transition: 0.2ms;
+}
+
+.back:hover {
+  color: white;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 25%);
+  background-color: rgb(122, 32, 32);
+}

@@ -4,11 +4,12 @@ import { Item } from '../../interfaces/item-interface';
 import { ItemContext } from '../../store/item-context';
 import classes from './Details.module.css';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 function Details() {
   const context = useContext(ItemContext);
   const [item, setItem] = useState<Item>();
-
+  const navigate = useNavigate();
   useEffect(() => {
     getDetailsFromApi();
   }, []);
@@ -45,6 +46,9 @@ function Details() {
         <h3>Description</h3>
         <p className={classes.paragraph}>{item?.description}</p>
       </div>
+      <button className={classes.back} onClick={() => navigate('/')}>
+        Back
+      </button>
     </div>
   );
 }
