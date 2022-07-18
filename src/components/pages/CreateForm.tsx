@@ -27,7 +27,7 @@ function CreateForm() {
 
   const postItemToApi = async () => {
     await axios.post(process.env.REACT_APP_POST ?? '', item);
-    navigate('/homepage');
+    navigate('/');
   };
 
   useEffect(() => {
@@ -118,7 +118,7 @@ function CreateForm() {
         ></input>
 
         <button className={classes.submit}>SUBMIT</button>
-        <button className={classes.back} onClick={() => navigate('/homepage')}>
+        <button className={classes.back} onClick={() => navigate('/')}>
           Back
         </button>
       </form>

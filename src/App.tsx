@@ -17,7 +17,7 @@ function App() {
         <ItemContextProvider>
           <Routes>
             <Route
-              path='/homepage'
+              path='/'
               element={
                 <Fragment>
                   <DisplayList></DisplayList>
