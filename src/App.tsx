@@ -7,10 +7,11 @@ import Header from './components/Header';
 import CreateForm from './components/pages/CreateForm';
 import Details from './components/pages/Details';
 import ItemContextProvider from './store/ItemContextProvider';
-
+import { Toaster } from 'react-hot-toast';
 function App() {
   return (
     <div className='App'>
+      <Toaster></Toaster>
       <div className='main-container'>
         <Header></Header>
         <ItemContextProvider>

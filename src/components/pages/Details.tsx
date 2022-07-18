@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Item } from '../../interfaces/item-interface';
 import { ItemContext } from '../../store/item-context';
 import classes from './Details.module.css';
+import toast from 'react-hot-toast';
 
 function Details() {
   const context = useContext(ItemContext);
@@ -17,9 +18,12 @@ function Details() {
       ? context.selectedItemId
       : localStorage.getItem('selectedItemId');
 
-    const result = await axios.get(
-      `https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/${id}`
-    );
+    const result = await axios
+      .get(`${process.env.REACT_APP_BASE_URL}/products/${id}`)
+      .catch((err) => {
+        toast.error(err.message);
+        throw err;
+      });
 
     setItem(result.data);
   };

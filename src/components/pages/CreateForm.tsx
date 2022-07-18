@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Category } from '../../interfaces/category-interface';
 import { Item } from '../../interfaces/item-interface';
 import classes from './CreateForm.module.css';
+import toast from 'react-hot-toast';
 
 function CreateForm() {
   const initialState: Item = {
@@ -25,10 +26,7 @@ function CreateForm() {
   };
 
   const postItemToApi = async () => {
-    await axios.post(
-      'https://62286b649fd6174ca82321f1.mockapi.io/case-study/products',
-      item
-    );
+    await axios.post(process.env.REACT_APP_POST ?? '', item);
     navigate('/homepage');
   };
 
@@ -37,9 +35,12 @@ function CreateForm() {
   }, []);
 
   const fetchCategories = async () => {
-    const result = await axios.get(
-      'https://62286b649fd6174ca82321f1.mockapi.io/case-study/categories/'
-    );
+    const result = await axios
+      .get(process.env.REACT_APP_GET_CATEGORIES ?? '')
+      .catch((err) => {
+        toast.error(err.message);
+        throw err;
+      });
 
     const categories = result.data as Category[];
 

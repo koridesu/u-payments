@@ -5,6 +5,8 @@ import classes from './DisplayList.module.css';
 import axios from 'axios';
 import { FilterInterface } from '../interfaces/item-interface';
 import Filter from './Filter';
+import toast from 'react-hot-toast';
+
 function DisplayList() {
   const itemContext = useContext(ItemContext);
 
@@ -15,17 +17,27 @@ function DisplayList() {
   }, []);
 
   const getItemsFromApi = async () => {
-    const result = await axios.get(
-      'https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/'
-    );
+    const result = await axios
+      .get(process.env.REACT_APP_GET_PRODUCTS ?? '')
+      .catch((err) => {
+        toast.error(err.message);
+        throw err;
+      });
 
     itemContext.setItems(result.data);
   };
 
   const deleteItemById = async (id: string) => {
-    await axios.delete(
-      `https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/${id}`
-    );
+    await axios
+      .delete(
+        `${process.env.REACT_APP_BASE_URL}/products/${id}`
+        // `https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/${id}`
+      )
+      .catch((err) => {
+        toast.error(err);
+
+        throw err;
+      });
 
     itemContext.setItems(
       itemContext.items.filter((item) => {

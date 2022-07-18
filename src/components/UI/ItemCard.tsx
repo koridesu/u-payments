@@ -23,12 +23,12 @@ function ItemCard(props: Props) {
   };
 
   return (
-    <div className={classes['item-card']} onClick={navigateDescriptions}>
+    <div className={classes['item-card']}>
       <button className={classes.close} onClick={onclick}>
         X
       </button>
 
-      <div className={classes['img-container']}>
+      <div className={classes['img-container']} onClick={navigateDescriptions}>
         <img src={props.item.avatar} alt={props.item.avatar}></img>
       </div>
       <p>{props.item.name}</p>
